@@ -24,6 +24,7 @@ public class Post {
     @Lob
     @Column(nullable = false)
     private String content;
+    private String shortDescription;
     private String url;
     @CreationTimestamp
     private LocalDateTime createdOn;
