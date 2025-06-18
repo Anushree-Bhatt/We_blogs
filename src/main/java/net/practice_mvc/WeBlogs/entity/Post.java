@@ -21,6 +21,7 @@ public class Post {
     private Long id;
     @Column(nullable = false)
     private String title;
+    @Lob
     @Column(nullable = false)
     private String content;
     private String url;
@@ -28,5 +29,4 @@ public class Post {
     private LocalDateTime createdOn;
     @UpdateTimestamp
     private LocalDateTime updatedOn;
-
 }
