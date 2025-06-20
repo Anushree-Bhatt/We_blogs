@@ -6,4 +6,5 @@ import java.util.List;
 
 public interface PostService {
     List<PostDto> retrieveAllPosts();
+    Long addPost(PostDto postDto);
 }

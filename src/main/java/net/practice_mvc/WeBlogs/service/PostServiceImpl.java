@@ -22,4 +22,11 @@ public class PostServiceImpl implements PostService{
         List<PostDto> postDtos = postRepository.findAll().stream().map(post -> PostMapper.mapToPostDto(post)).collect(Collectors.toList());
         return postDtos;
     }
+
+    @Override
+    public Long addPost(PostDto postDto) {
+        Post post = PostMapper.mapToPost(postDto);
+        Post res = postRepository.save(post);
+        return res.getId();
+    }
 }
