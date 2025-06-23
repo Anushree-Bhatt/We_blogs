@@ -22,7 +22,7 @@ public class Post {
     @Column(nullable = false)
     private String title;
     @Lob
-    @Column(nullable = false)
+    @Column(nullable = false, name = "content", columnDefinition = "LONGTEXT")
     private String content;
     private String shortDescription;
     private String url;

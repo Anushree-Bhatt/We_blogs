@@ -22,6 +22,17 @@
         h1, th{
             color: #0d0d0d;
         }
+        a{
+            display: inline-block;
+            cursor: pointer;
+            border-radius: 3px;
+            text-decoration: none;
+            transition: transform .2s cubic-bezier(.561, -.163, .246, 1.27);
+        }
+        a:hover {
+            transform: translate(0, -4px);
+            box-shadow: 0 5px 15px -10px #000;
+        }
     </style>
 </head>
 <body>
@@ -50,6 +61,10 @@
                             <td th:text="${post.title}"></td>
                             <td th:text="${post.shortDescription}"></td>
                             <td th:text="${post.createdOn}"></td>
+                            <td>
+                                <a th:href="@{/admin/posts/{id}/edit(id = ${post.id})}" th:text="edit"></a>
+                                <a th:href="@{/admin/posts/{id}/delete(id = ${post.id})}" th:text="delete"></a>
+                            </td>
 
                         </tr>
                     </tbody>

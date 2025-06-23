@@ -29,4 +29,22 @@ public class PostServiceImpl implements PostService{
         Post res = postRepository.save(post);
         return res.getId();
     }
+
+    @Override
+    public PostDto retrievePost(Long id) {
+        Post post = postRepository.findById(id).orElseGet(() -> {throw new RuntimeException("id not found!");});
+        return PostMapper.mapToPostDto(post);
+    }
+
+    @Override
+    public void updatePost(PostDto postDto) {
+        Post post = postRepository.findById(postDto.getId()).orElseGet(() -> {throw new RuntimeException("id not found!");});
+        postRepository.save(PostMapper.mapToPost(postDto));
+    }
+
+    @Override
+    public void deletePost(Long id) {
+        Post post = postRepository.findById(id).orElseGet(() -> {throw new RuntimeException("id not found!");});
+        postRepository.deleteById(id);
+    }
 }
