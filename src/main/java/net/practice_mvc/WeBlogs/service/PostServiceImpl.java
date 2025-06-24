@@ -47,4 +47,10 @@ public class PostServiceImpl implements PostService{
         Post post = postRepository.findById(id).orElseGet(() -> {throw new RuntimeException("id not found!");});
         postRepository.deleteById(id);
     }
+
+    @Override
+    public PostDto retrievePostByUrl(String url) {
+        Post post = postRepository.findByUrl(url).orElseGet(() -> {throw new RuntimeException("id not found!");});
+        return PostMapper.mapToPostDto(post);
+    }
 }

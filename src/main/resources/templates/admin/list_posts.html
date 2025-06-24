@@ -13,7 +13,7 @@
             gap: 10px;
             background-color: #eff0f3;
         }
-        table, .footer_content{
+        table{
             background-color: #fffffe;
         }
         td{
@@ -64,6 +64,7 @@
                             <td>
                                 <a th:href="@{/admin/posts/{id}/edit(id = ${post.id})}" th:text="edit"></a>
                                 <a th:href="@{/admin/posts/{id}/delete(id = ${post.id})}" th:text="delete"></a>
+                                <a th:href="@{/admin/posts/{url}(url = ${post.url})}" th:text="view"></a>
                             </td>
 
                         </tr>
@@ -74,8 +75,8 @@
 
     </main>
 
-    <footer class="footer_content">
-        <p>&copy; 2025 WeBlogs Website</p>
+    <footer>
+        <div th:replace="~{admin/common/footer :: footer-content}"></div>
     </footer>
 
 </body>

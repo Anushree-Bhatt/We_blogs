@@ -58,7 +58,7 @@
                 <div>
                     <label for="title" class="form-label">Title</label>
                     <input type="text" class="form-control" id="title" name="title" th:field="*{title}">
-                    <p th:if="${#fields.hasErrors('title')}" th:errors="*{title}" class="text-danger">invalid totle</p>
+                    <p th:if="${#fields.hasErrors('title')}" th:errors="*{title}" class="text-danger"></p>
                 </div>
                 <div>
                     <label for="short_desc" class="form-label">Short description</label>

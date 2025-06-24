@@ -11,4 +11,5 @@ public interface PostService {
     PostDto retrievePost(Long id);
     void updatePost(PostDto postDto);
     void deletePost(Long id);
+    PostDto retrievePostByUrl(String url);
 }
