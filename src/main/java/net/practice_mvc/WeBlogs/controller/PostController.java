@@ -8,10 +8,9 @@ import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.ModelAttribute;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.*;
+
+import java.util.List;
 
 @Controller
 public class PostController {
@@ -82,5 +81,16 @@ public class PostController {
         model.addAttribute("postDto", postDto);
         return "/admin/view_post";
     }
+
+    @GetMapping("/admin/posts/search")
+    public String searchPost(@RequestParam(value = "search_exp") String search_exp, Model model){
+        logger.info("Search Posts..............");
+        List<PostDto> postDtos = postService.searchPosts(search_exp);
+        model.addAttribute("posts", postDtos);
+        logger.info(postDtos+"");
+        return "/admin/list_posts";
+    }
+
+
 
 }

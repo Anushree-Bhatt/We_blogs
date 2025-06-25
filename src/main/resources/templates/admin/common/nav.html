@@ -25,6 +25,21 @@
                     </li>
                 </ul>
                 <ul class="navbar-nav">
+                    <li class="nav-item d-flex search-bar-container me-3">
+                        <!-- Search Icon Button -->
+                        <button id="toggleSearch" class="search-icon" aria-label="Open Search">
+                            <i class="bi bi-search"></i>
+                        </button>
+
+                        <!-- Hidden Search Form -->
+                        <form id="searchForm" class="search-form" role="search" method="get" th:action="@{/admin/posts/search(search_exp)}">
+                            <input type="text" class="form-control form-control-sm" placeholder="Search posts..." name="search_exp">
+
+                            <button type="submit" class="btn btn-sm go_button">Go</button>
+
+                            <button type="button" class="btn-close btn-lg" id="closeSearch" aria-label="Close"></button>
+                        </form>
+                    </li>
                     <li class="nav-item d-flex me-1">
                         <a class="nav-link active" aria-current="page" href="#">Logout</a>
                     </li>

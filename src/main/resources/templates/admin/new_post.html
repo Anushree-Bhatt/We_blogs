@@ -39,9 +39,9 @@
     </style>
 </head>
 <body>
-    <header>
-        <div th:replace="~{admin/common/nav :: nav}"></div>
+    <header th:replace="~{admin/common/nav :: nav}">
     </header>
+
     <main class="mt-5">
         <article class="card mt-3">
             <h4 class="card-header">Create Post</h4>
@@ -71,9 +71,11 @@
         </article>
     </main>
 
-    <footer>
-        <div th:replace="~{admin/common/footer :: footer-content}"></div>
+    <footer th:replace="~{admin/common/footer :: footer-content}">
     </footer>
+
+    <script>var editor = new FroalaEditor('#content');</script>
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js" integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo=" crossorigin="anonymous"></script>
 
 </body>
 </html>

@@ -43,50 +43,49 @@
     </style>
 </head>
 <body>
-<header>
-    <div th:replace="~{admin/common/nav :: nav}"></div>
-</header>
-<main class="mt-5">
-    <article class="card mt-3">
-        <h4 class="card-header">Create Post</h4>
-        <section class="card-body">
-            <form method="post" th:object="${postDto}" th:action="@{/admin/posts}" class="row gap-3">
-                <input type="hidden" th:field="*{id}">
-                <input type="hidden" th:field="*{url}">
-                <input type="hidden" th:field="*{createdOn}">
-                <input type="hidden" th:field="*{updatedOn}">
-                <div>
-                    <label for="title" class="form-label">Title</label>
-                    <input type="text" class="form-control" id="title" name="title" th:field="*{title}">
-                    <p th:if="${#fields.hasErrors('title')}" th:errors="*{title}" class="text-danger"></p>
-                </div>
-                <div>
-                    <label for="short_desc" class="form-label">Short description</label>
-                    <textarea rows="3" class="form-control" id="short_desc" th:field="*{shortDescription}"></textarea>
-                    <p th:if="${#fields.hasErrors('shortDescription')}" th:errors="*{shortDescription}" class="text-danger"></p>
-                </div>
-                <div>
-                    <label for="content" class="form-label">Content</label>
-                    <textarea rows="3" class="form-control" id="content" name="content" th:field="*{content}"></textarea>
-                    <p th:if="${#fields.hasErrors('content')}" th:errors="*{content}" class="text-danger"></p>
-                </div>
-                <div>
-                    <button type="submit" class="btn" value="submit">submit</button>
-                </div>
-            </form>
-        </section>
+    <header th:replace="~{admin/common/nav :: nav}">
+    </header>
+    <main class="mt-5">
+        <article class="card mt-3">
+            <h4 class="card-header">Create Post</h4>
+            <section class="card-body">
+                <form method="post" th:object="${postDto}" th:action="@{/admin/posts}" class="row gap-3">
+                    <input type="hidden" th:field="*{id}">
+                    <input type="hidden" th:field="*{url}">
+                    <input type="hidden" th:field="*{createdOn}">
+                    <input type="hidden" th:field="*{updatedOn}">
+                    <div>
+                        <label for="title" class="form-label">Title</label>
+                        <input type="text" class="form-control" id="title" name="title" th:field="*{title}">
+                        <p th:if="${#fields.hasErrors('title')}" th:errors="*{title}" class="text-danger"></p>
+                    </div>
+                    <div>
+                        <label for="short_desc" class="form-label">Short description</label>
+                        <textarea rows="3" class="form-control" id="short_desc" th:field="*{shortDescription}"></textarea>
+                        <p th:if="${#fields.hasErrors('shortDescription')}" th:errors="*{shortDescription}" class="text-danger"></p>
+                    </div>
+                    <div>
+                        <label for="content" class="form-label">Content</label>
+                        <textarea rows="3" class="form-control" id="content" name="content" th:field="*{content}"></textarea>
+                        <p th:if="${#fields.hasErrors('content')}" th:errors="*{content}" class="text-danger"></p>
+                    </div>
+                    <div>
+                        <button type="submit" class="btn" value="submit">submit</button>
+                    </div>
+                </form>
+            </section>
 
-    </article>
-</main>
-<footer class="footer_content">
-    <p>&copy; 2025 WeBlogs Website</p>
-</footer>
+        </article>
+    </main>
 
+    <footer th:replace="~{admin/common/footer :: footer-content}">
+    </footer>
 
 
-<script>var editor = new FroalaEditor('#content');</script>
 
-<script src="https://code.jquery.com/jquery-3.7.1.min.js" integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo=" crossorigin="anonymous"></script>
+
+    <script>var editor = new FroalaEditor('#content');</script>
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js" integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo=" crossorigin="anonymous"></script>
 
 
 
